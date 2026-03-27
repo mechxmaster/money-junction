@@ -15498,81 +15498,71 @@ const A1 = [
     }),
   L1 = [
     {
-      id: "free",
-      name: "Free",
-      badge: "INVITE ONLY",
-      badgeColor: "bg-[#10B981]",
-      basePrice: 0,
-      clients: "Up to 10 Clients",
-      isInviteOnly: !0,
-      features: [
-        "Manage 10 Clients",
-        "MF + Insurance Tracking",
-        "10 Reminders",
-        "“Powered by Money Junction” Branding",
-      ],
-      color: "bg-[#f5f5f0]",
-      darkMode: !1,
-      btnColor: "bg-slate-800 text-white",
-    },
-    {
-      id: "starter",
-      name: "Starter",
-      badge: "SAVE 30%",
-      badgeColor: "bg-[#10B981]",
-      basePrice: 199,
-      earlyAccessPrice: 139,
-      clients: "Up to 50 Clients",
-      features: [
-        "Manage 50 Clients",
-        "MF Portfolio Tracking",
-        "Insurance Policy Tracking",
-        "Simple MF Dashboard",
-        "Insurance Renewal Reminders",
-        "Up to 50 Reminders",
-        "Email Support",
-      ],
-      color: "bg-[#f5f5f0]",
-      darkMode: !1,
-      btnColor: "bg-slate-800 text-white",
-    },
-    {
-      id: "growth",
-      name: "Growth",
+      id: "monthly",
+      name: "Monthly",
       badge: "POPULAR",
       badgeColor: "bg-[#003366]",
-      basePrice: 399,
-      earlyAccessPrice: 279,
-      clients: "Up to 150 Clients",
-      popular: !0,
+      basePrice: 1200,
+      period: "per month",
+      clients: "Unlimited Clients",
       features: [
-        "Everything in Starter",
+        "Manage Unlimited Clients",
+        "MF Portfolio Tracking",
+        "Insurance Policy Tracking",
         "Unified Client Dashboard",
+        "Insurance Renewal Reminders",
         "Insurance Payment Link Sharing",
-        "Up to 150 Reminders",
         "Monthly MF Performance Summary",
-        "In-app Notifications",
+        "Family-wise Client Grouping",
+        "Priority Feature Access",
+      ],
+      color: "bg-white",
+      darkMode: !1,
+      btnColor: "bg-slate-800 text-white",
+    },
+    {
+      id: "half-yearly",
+      name: "Half-Yearly",
+      badge: "SAVE 15%",
+      badgeColor: "bg-[#10B981]",
+      basePrice: 6000,
+      period: "for 6 months",
+      clients: "Unlimited Clients",
+      features: [
+        "Manage Unlimited Clients",
+        "MF Portfolio Tracking",
+        "Insurance Policy Tracking",
+        "Unified Client Dashboard",
+        "Insurance Renewal Reminders",
+        "Insurance Payment Link Sharing",
+        "Monthly MF Performance Summary",
+        "Family-wise Client Grouping",
+        "Priority Feature Access",
       ],
       color: "bg-black",
       darkMode: !0,
       btnColor: "bg-indigo-600 text-white",
     },
     {
-      id: "pro",
-      name: "Pro",
-      badge: "SERIOUS ADVISOR",
+      id: "yearly",
+      name: "Yearly",
+      badge: "SAVE 30%",
       badgeColor: "bg-[#10B981]",
-      basePrice: 699,
-      earlyAccessPrice: 489,
-      clients: "Up to 300 Clients",
+      basePrice: 10000,
+      period: "for 12 months",
+      clients: "Unlimited Clients",
       features: [
-        "Everything in Growth",
+        "Manage Unlimited Clients",
+        "MF Portfolio Tracking",
+        "Insurance Policy Tracking",
+        "Unified Client Dashboard",
+        "Insurance Renewal Reminders",
+        "Insurance Payment Link Sharing",
+        "Monthly MF Performance Summary",
         "Family-wise Client Grouping",
-        "Reminder Scheduling Calendar",
-        "Priority Feature Access (Phase-2)",
-        "Early Access to Intelligence Features",
+        "Priority Feature Access",
       ],
-      color: "bg-[#f5f5f0]",
+      color: "bg-white",
       darkMode: !1,
       btnColor: "bg-amber-600 text-white",
     },
@@ -15862,56 +15852,18 @@ const A1 = [
                       }),
                     ],
                   }),
-                  n.jsx("div", {
-                    className: "flex justify-center mb-14",
-                    children: n.jsxs("div", {
-                      className:
-                        "bg-slate-100 p-1 rounded-full flex relative",
-                      children: [
-                        n.jsx("button", {
-                          onClick: () => C("monthly"),
-                          className: `px-6 py-2 rounded-full text-xs font-bold transition-all z-10 ${D === "monthly" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500"}`,
-                          children: "Monthly",
-                        }),
-                        n.jsxs("button", {
-                          onClick: () => C("yearly"),
-                          className: `px-6 py-2 rounded-full text-xs font-bold transition-all z-10 flex items-center gap-1 ${D === "yearly" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500"}`,
-                          children: [
-                            "Yearly ",
-                            n.jsx("span", {
-                              className:
-                                "text-[9px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full",
-                              children: "-30%",
-                            }),
-                          ],
-                        }),
-                      ],
-                    }),
-                  }),
                 ],
               }),
               n.jsx("div", {
                 className:
                   "flex gap-4 px-6 pb-10 overflow-x-auto snap-x snap-mandatory no-scrollbar items-stretch pt-10",
                 children: L1.map((Q) => {
-                  let Z = "",
-                    R = "",
-                    ce = null;
-                  if (Q.isInviteOnly) ((Z = "Free"), (R = ""));
-                  else {
-                    let ge = Q.earlyAccessPrice || Q.basePrice;
-                    D === "monthly"
-                      ? ((Z = `₹ ${ge}`),
-                        (R = "/mo"),
-                        Q.earlyAccessPrice && (ce = `₹ ${Q.basePrice}`))
-                      : ((Z = `₹ ${(ge * 12 * 0.7).toFixed(0)}`),
-                        (R = "/yr"),
-                        (ce = `₹ ${Q.basePrice * 12}`));
-                  }
+                  const Z = Q.name,
+                    R = Q.basePrice.toLocaleString("en-IN");
                   return n.jsxs(
                     "div",
                     {
-                      className: `relative p-6 rounded-3xl transition-all min-w-[270px] w-[80%] snap-center flex flex-col hover:scale-[1.02] hover:shadow-xl duration-300 shadow-lg scale-105 ${Q.color}`,
+                      className: `relative p-6 rounded-3xl transition-all min-w-[270px] w-[80%] snap-center flex flex-col hover:scale-[1.02] hover:shadow-xl duration-300 shadow-lg scale-105 ${Q.darkMode ? "bg-slate-900 text-white" : "bg-white border border-slate-100"}`,
                       children: [
                         n.jsx("div", {
                           className: `absolute -top-3 right-8 ${Q.badgeColor} text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-md whitespace-nowrap z-10 uppercase tracking-wider scale-105`,
@@ -15922,59 +15874,22 @@ const A1 = [
                           children: [
                             n.jsx("h3", {
                               className: `text-sm font-bold uppercase tracking-wider ${Q.darkMode ? "text-slate-400" : "text-slate-500"}`,
-                              children: Q.name,
+                              children: Z,
                             }),
                             n.jsxs("div", {
                               className: "flex items-baseline gap-1 mt-2",
                               children: [
-                                !Q.isInviteOnly &&
                                 n.jsx("span", {
                                   className: `text-2xl font-bold ${Q.darkMode ? "text-slate-500" : "text-slate-400"}`,
                                   children: "₹",
                                 }),
                                 n.jsx("span", {
-                                  className: `text-5xl font-extrabold tracking-tight ${D === "yearly" && !Q.isInviteOnly ? "text-green-500" : Q.darkMode ? "text-white" : "text-slate-900"}`,
-                                  children: Z,
+                                  className: `text-5xl font-extrabold tracking-tight ${Q.darkMode ? "text-white" : "text-slate-900"}`,
+                                  children: R,
                                 }),
                                 n.jsx("span", {
                                   className: `text-sm font-bold ${Q.darkMode ? "text-slate-500" : "text-slate-400"}`,
-                                  children: R,
-                                }),
-                              ],
-                            }),
-                            ce &&
-                            n.jsxs("div", {
-                              className:
-                                "flex items-center gap-1 mt-1 relative",
-                              children: [
-                                n.jsx("span", {
-                                  className: `text-xs font-bold line-through ${Q.darkMode ? "text-slate-600" : "text-slate-400"}`,
-                                  children: ce,
-                                }),
-                                D === "monthly" &&
-                                n.jsxs("div", {
-                                  className: "relative",
-                                  children: [
-                                    n.jsx(Dc, {
-                                      size: 12,
-                                      className: `cursor-pointer ${Q.darkMode ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"}`,
-                                      onClick: () =>
-                                        W(Y === Q.id ? null : Q.id),
-                                    }),
-                                    Y === Q.id &&
-                                    n.jsxs("div", {
-                                      className:
-                                        "absolute left-0 bottom-full mb-2 w-48 bg-slate-800 text-white text-[10px] p-2 rounded-lg shadow-xl z-20",
-                                      children: [
-                                        "Next month onwards charged with ",
-                                        ce,
-                                        n.jsx("div", {
-                                          className:
-                                            "absolute top-full left-2 -mt-1 border-4 border-transparent border-t-slate-800",
-                                        }),
-                                      ],
-                                    }),
-                                  ],
+                                  children: Q.period,
                                 }),
                               ],
                             }),
@@ -16009,43 +15924,11 @@ const A1 = [
                             ),
                           ),
                         }),
-                        Q.isInviteOnly
-                          ? n.jsxs("div", {
-                            className: "mt-auto",
-                            children: [
-                              n.jsxs("div", {
-                                className: "flex gap-2",
-                                children: [
-                                  n.jsx("input", {
-                                    type: "text",
-                                    placeholder: "Enter Invite Code",
-                                    value: b,
-                                    onChange: (ge) => U(ge.target.value),
-                                    className:
-                                      "flex-1 bg-white border border-slate-200 rounded-xl px-3 py-3 text-sm font-bold focus:outline-none focus:border-mj-blue",
-                                  }),
-                                  n.jsx("button", {
-                                    onClick: () => H(Q.id),
-                                    className:
-                                      "bg-slate-800 text-white p-3 rounded-xl shadow-sm active:scale-95 transition-all",
-                                    children: n.jsx(Ha, { size: 18 }),
-                                  }),
-                                ],
-                              }),
-                              n.jsx("button", {
-                                onClick: () => G(!0),
-                                className:
-                                  "text-[10px] text-mj-blue font-bold mt-3 text-center w-full hover:underline",
-                                children: "Get Invite",
-                              }),
-                            ],
-                          })
-                          : n.jsx("button", {
-                            onClick: () => H(Q.id),
-                            className: `w-full py-4 rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all mt-auto ${Q.id === d ? "bg-mj-blue text-white" : Q.btnColor}`,
-                            children:
-                              Q.id === d ? "Current Plan" : "Upgrade",
-                          }),
+                        n.jsx("button", {
+                          onClick: () => H(Q.id),
+                          className: `w-full py-4 rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all mt-auto ${Q.id === d ? "bg-mj-blue text-white" : Q.btnColor}`,
+                          children: Q.id === d ? "Current Plan" : "Upgrade",
+                        }),
                       ],
                     },
                     Q.id,
