@@ -13832,7 +13832,7 @@ const A1 = [
                     className: "font-bold text-lg mb-2",
                     children: y,
                   }),
-                  n.jsx("p", { className: "text-sm opacity-90", children: x }),
+                  id !== "nps" && n.jsx("p", { className: "text-sm opacity-90", children: x }),
                 ],
               }),
               id === "nps"
