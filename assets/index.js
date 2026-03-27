@@ -18917,14 +18917,14 @@ const A1 = [
       id: "fd-rd",
       title: "FD/RD",
       icon: n.jsx(r0, { size: 20 }),
-      implemented: !1,
+      implemented: !0,
     },
-    { id: "nps", title: "NPS", icon: n.jsx(On, { size: 20 }), implemented: !1 },
+    { id: "nps", title: "NPS", icon: n.jsx(On, { size: 20 }), implemented: !0 },
     {
       id: "digital-gold",
       title: "Digital Gold",
       icon: n.jsx(ni, { size: 20 }),
-      implemented: !1,
+      implemented: !0,
     },
     {
       id: "loan-mf",
@@ -18936,7 +18936,7 @@ const A1 = [
       id: "loan-home",
       title: "Home Loan",
       icon: n.jsx(Rc, { size: 20 }),
-      implemented: !1,
+      implemented: !0,
     },
     {
       id: "network-hospitals",
@@ -19729,20 +19729,40 @@ const A1 = [
                   className: "bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-3xl p-6 text-white shadow-xl mb-6 relative overflow-hidden",
                   children: [
                     n.jsx("div", { className: "absolute top-[-20px] right-[-20px] w-40 h-40 bg-white/10 rounded-full blur-2xl" }),
-                    n.jsx("div", { className: "relative z-10", children: [
-                      n.jsxs("div", { className: "flex justify-between items-start", children: [
-                        n.jsxs("div", { children: [
-                          n.jsx("p", { className: "text-indigo-100 text-sm font-medium", children: "Current Plan" }),
-                          n.jsx("h2", { className: "text-3xl font-black mt-1 uppercase tracking-tight", children: "Premium" }),
-                        ]}),
-                        n.jsx("div", { className: "bg-white/20 p-2 rounded-xl backdrop-blur-sm", children: n.jsx(h0, { size: 24 }) }),
-                      ]}),
-                      n.jsxs("div", { className: "mt-8 flex items-baseline gap-1", children: [
-                        n.jsx("span", { className: "text-4xl font-black", children: "₹ 999" }),
-                        n.jsx("span", { className: "text-indigo-200 text-sm", children: "/ year" }),
-                      ]}),
-                      n.jsx("p", { className: "text-indigo-200 text-xs mt-2", children: "Next renewal on Oct 12, 2024" }),
-                    ]}),
+                    n.jsxs("div", {
+                      className: "relative z-10",
+                      children: [
+                        n.jsxs("div", {
+                          className: "flex justify-between items-start",
+                          children: [
+                            n.jsxs("div", {
+                              children: [
+                                n.jsx("p", { className: "text-indigo-100 text-sm font-medium", children: "Current Plan" }),
+                                n.jsx("h2", { className: "text-3xl font-black mt-1 uppercase tracking-tight", children: "Premium" }),
+                              ],
+                            }),
+                            n.jsx("div", { className: "bg-white/20 p-2 rounded-xl backdrop-blur-sm", children: n.jsx(h0, { size: 24 }) }),
+                          ],
+                        }),
+                        n.jsxs("div", {
+                          className: "mt-8 flex items-baseline gap-1",
+                          children: [
+                            n.jsx("span", { className: "text-4xl font-black", children: "₹ 999" }),
+                            n.jsx("span", { className: "text-indigo-200 text-sm", children: "/ year" }),
+                          ],
+                        }),
+                        n.jsx("div", {
+                          className: "mt-4 pt-4 border-t border-white/10",
+                          children: n.jsxs("div", {
+                            className: "flex items-center gap-2 text-indigo-100",
+                            children: [
+                              n.jsx(b1, { size: 14 }),
+                              n.jsx("span", { className: "text-xs font-bold", children: "Next renewal on March 27, 2027" }),
+                            ],
+                          }),
+                        }),
+                      ],
+                    }),
                   ],
                 }),
                 n.jsxs("div", {
