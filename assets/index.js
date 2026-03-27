@@ -13776,7 +13776,7 @@ const A1 = [
       ),
     });
   },
-  w1 = ({ icon: r, title: y, details: x, implemented: d, onNavigate: v }) => {
+  w1 = ({ id, icon: r, title: y, details: x, implemented: d, onNavigate: v }) => {
     const [N, O] = M.useState(!1),
       D = () => {
         d ? v() : O(!N);
@@ -13835,11 +13835,41 @@ const A1 = [
                   n.jsx("p", { className: "text-sm opacity-90", children: x }),
                 ],
               }),
-              n.jsx("p", {
-                className:
-                  "font-semibold text-center bg-white/20 rounded-full px-4 py-1 text-xs",
-                children: "Coming Soon",
-              }),
+              id === "nps"
+                ? n.jsxs("div", {
+                    className: "flex flex-col gap-2 mt-2",
+                    children: [
+                      n.jsx("button", {
+                        className:
+                          "bg-white text-indigo-600 rounded-lg py-1.5 px-3 text-[10px] font-bold hover:bg-indigo-50 transition-colors shadow-sm",
+                        onClick: (I) => {
+                          I.stopPropagation();
+                          window.open(
+                            "https://mynps360direct.nps-proteantech.in/DIY?client=88fd66db71e686b7127476223e7abe69b2f05817&secure=e3c66115cb7ed09f1bc1ab50e0931c27ab7ef108&agt=4a165f7ef5ca617341777894a5203710b119c584&infl=false",
+                            "_blank",
+                          );
+                        },
+                        children: "New NPS Customer",
+                      }),
+                      n.jsx("button", {
+                        className:
+                          "bg-white/20 text-white border border-white/30 rounded-lg py-1.5 px-3 text-[10px] font-bold hover:bg-white/30 transition-colors",
+                        onClick: (I) => {
+                          I.stopPropagation();
+                          window.open(
+                            "https://mynps360direct.nps-proteantech.in/DIY/Contribution?client=88fd66db71e686b7127476223e7abe69b2f05817&secure=e3c66115cb7ed09f1bc1ab50e0931c27ab7ef108&agt=4a165f7ef5ca617341777894a5203710b119c584&infl=false",
+                            "_blank",
+                          );
+                        },
+                        children: "Existing Top-up",
+                      }),
+                    ],
+                  })
+                : n.jsx("p", {
+                    className:
+                      "font-semibold text-center bg-white/20 rounded-full px-4 py-1 text-xs",
+                    children: "Coming Soon",
+                  }),
             ],
           }),
         ],
@@ -13923,6 +13953,7 @@ const A1 = [
           n.jsx(
             w1,
             {
+              id: x.id,
               title: x.title,
               icon: x.icon,
               details: x.details,
