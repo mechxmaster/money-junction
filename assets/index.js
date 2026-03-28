@@ -19837,7 +19837,8 @@ const A1 = [
             });
           case "Subscription":
             return n.jsx("div", {
-              className: "p-6 flex flex-row gap-6 overflow-x-auto snap-x snap-mandatory animate-in fade-in duration-500 pb-24 items-stretch",
+              className: "p-6 animate-in fade-in duration-500 pb-24 w-full max-w-6xl mx-auto",
+              style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", alignItems: "stretch" },
               children: [
                 {
                   id: "monthly",
@@ -19864,7 +19865,7 @@ const A1 = [
                   bg: "bg-white text-slate-900"
                 }
               ].map((P, i) => n.jsxs("div", {
-                className: `min-w-[280px] w-[85%] md:flex-1 shrink-0 snap-center ${P.bg} rounded-[32px] p-6 shadow-xl relative overflow-hidden flex flex-col border border-slate-100 cursor-pointer active:scale-[0.98] transition-all`,
+                className: `w-full h-full ${P.bg} rounded-[32px] p-6 shadow-xl relative overflow-hidden flex flex-col border border-slate-100 cursor-pointer active:scale-[0.98] transition-all`,
                 style: P.bg.includes("slate-900") ? { backgroundColor: "#0f172a" } : { backgroundColor: "#ffffff" },
                 children: [
                   n.jsx("div", {
