@@ -19887,7 +19887,7 @@ const A1 = [
                     ]
                   }),
                   n.jsx("div", { className: `border-t ${P.bg.includes("slate") ? "border-slate-800" : "border-slate-100"} mb-6` }),
-                  P.id !== "half-yearly" && n.jsx("div", {
+                  n.jsx("div", {
                     className: "space-y-4 mb-8",
                     children: [
                       "Unlimited document storage",
