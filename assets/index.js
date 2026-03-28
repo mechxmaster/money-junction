@@ -18949,10 +18949,10 @@ const A1 = [
                 n.jsxs("div", {
                   className: "relative z-10 flex flex-col h-full",
                   children: [
-                    n.jsx("div", { className: "bg-blue-600 text-white w-14 h-14 rounded-3xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200", children: n.jsx(f1, { size: 30 }) }),
+                    n.jsx("div", { style: { backgroundColor: "#2563eb" }, className: "text-white w-14 h-14 rounded-3xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200", children: n.jsx(f1, { size: 30 }) }),
                     n.jsx("h3", { style: { color: "#1a1a1a" }, className: "text-2xl font-black mb-2", children: "Life Insurance" }),
                     n.jsx("p", { style: { color: "#4b5563" }, className: "text-sm font-medium leading-relaxed max-w-[80%]", children: "Secure your family's financial future with the best life cover." }),
-                    n.jsxs("div", { className: "mt-8 flex items-center gap-2 text-xs font-black text-blue-600 bg-blue-50 w-fit px-5 py-2.5 rounded-2xl", children: ["View 5 Plans ", n.jsx(Rn, { size: 14 })] })
+                    n.jsxs("div", { style: { color: "#2563eb", backgroundColor: "#eff6ff" }, className: "mt-8 flex items-center gap-2 text-xs font-black w-fit px-5 py-2.5 rounded-2xl", children: ["View 5 Plans ", n.jsx(Rn, { size: 14 })] })
                   ]
                 })
               ]
@@ -18985,19 +18985,20 @@ const A1 = [
                       n.jsxs("div", {
                         className: "flex items-center gap-2 mt-1",
                         children: [
-                          n.jsx("div", { className: `w-2 h-2 rounded-full ${y === "health" ? "bg-emerald-500" : "bg-blue-600"}` }),
+                          n.jsx("div", { className: "w-2 h-2 rounded-full", style: { backgroundColor: y === "health" ? "#10b981" : "#2563eb" } }),
                           n.jsx("p", { style: { color: "#9ca3af" }, className: "text-xs font-bold uppercase tracking-wider", children: y === "health" ? "Manipal Cigna" : "ICICI Prudential" })
                         ]
                       })
                     ]
                   }),
-                  n.jsx("div", { className: `p-2 rounded-xl ${y === "health" ? "bg-emerald-50 text-emerald-600" : "bg-blue-50 text-blue-600"}`, children: n.jsx(e0, { size: 20 }) })
+                  n.jsx("div", { className: "p-2 rounded-xl", style: { backgroundColor: y === "health" ? "#d1fae5" : "#eff6ff", color: y === "health" ? "#059669" : "#2563eb" }, children: n.jsx(e0, { size: 20 }) })
                 ]
               }),
               n.jsxs("button", {
                 onClick: () => window.open(W.url, "_blank"),
-                className: `w-full py-4 rounded-2xl text-sm font-black text-white shadow-xl flex items-center justify-center gap-2 active:scale-[0.97] transition-all ${y === "health" ? "bg-emerald-500 shadow-emerald-200 hover:bg-emerald-600" : "bg-blue-600 shadow-blue-200 hover:bg-blue-700"}`,
-                children: [n.jsx(Jl, { size: 18 }), "Buy Now Plan"]
+                className: "w-full py-4 rounded-2xl text-sm font-black text-white shadow-xl flex items-center justify-center gap-2 active:scale-[0.97] transition-all cursor-pointer hover:opacity-90",
+                style: { backgroundColor: y === "health" ? "#10b981" : "#2563eb" },
+                children: [n.jsx(Jl, { size: 18 }), "BUY PLAN NOW"]
               })
             ]
           }, H))
