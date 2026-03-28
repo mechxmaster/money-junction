@@ -19837,13 +19837,13 @@ const A1 = [
             });
           case "Subscription":
             return n.jsx("div", {
-              className: "p-5 space-y-6 flex flex-col items-center animate-in fade-in duration-500 pb-24",
+              className: "p-6 flex flex-row gap-6 overflow-x-auto snap-x snap-mandatory animate-in fade-in duration-500 pb-24 items-stretch",
               children: [
                 {
                   id: "monthly",
                   name: "1 Month",
                   price: "1,200",
-                  period: "for 1 month",
+                  period: "per month",
                   badge: "BASIC",
                   bg: "bg-white text-slate-900"
                 },
@@ -19864,7 +19864,7 @@ const A1 = [
                   bg: "bg-white text-slate-900"
                 }
               ].map((P, i) => n.jsxs("div", {
-                className: `w-full max-w-md ${P.bg} rounded-[32px] p-6 shadow-xl relative overflow-hidden flex flex-col border border-slate-100 cursor-pointer active:scale-[0.98] transition-all`,
+                className: `min-w-[280px] w-[85%] md:flex-1 shrink-0 snap-center ${P.bg} rounded-[32px] p-6 shadow-xl relative overflow-hidden flex flex-col border border-slate-100 cursor-pointer active:scale-[0.98] transition-all`,
                 style: P.bg.includes("slate-900") ? { backgroundColor: "#0f172a" } : { backgroundColor: "#ffffff" },
                 children: [
                   n.jsx("div", {
@@ -19886,7 +19886,7 @@ const A1 = [
                     ]
                   }),
                   n.jsx("div", { className: `border-t ${P.bg.includes("slate") ? "border-slate-800" : "border-slate-100"} mb-6` }),
-                  n.jsx("div", {
+                  P.id !== "half-yearly" && n.jsx("div", {
                     className: "space-y-4 mb-8",
                     children: [
                       "Unlimited document storage",
