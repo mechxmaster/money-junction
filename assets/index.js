@@ -15499,11 +15499,11 @@ const A1 = [
   L1 = [
     {
       id: "monthly",
-      name: "Monthly",
+      name: "1 Month",
       badge: "POPULAR",
       badgeColor: "bg-[#003366]",
       basePrice: 1200,
-      period: "per month",
+      period: "for 1 month",
       clients: "Unlimited Clients",
       features: [
         "Manage Unlimited Clients",
@@ -15522,7 +15522,7 @@ const A1 = [
     },
     {
       id: "half-yearly",
-      name: "Half-Yearly",
+      name: "6 Months",
       badge: "SAVE 15%",
       badgeColor: "bg-[#10B981]",
       basePrice: 6000,
@@ -15545,11 +15545,11 @@ const A1 = [
     },
     {
       id: "yearly",
-      name: "Yearly",
+      name: "1 Year",
       badge: "SAVE 30%",
       badgeColor: "bg-[#10B981]",
       basePrice: 10000,
-      period: "for 12 months",
+      period: "for 1 year",
       clients: "Unlimited Clients",
       features: [
         "Manage Unlimited Clients",
