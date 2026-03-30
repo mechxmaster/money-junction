@@ -19823,16 +19823,91 @@ const A1 = [
               ],
             });
           case "Referral":
-            return n.jsx("div", {
-              className: "flex flex-col items-center justify-center min-h-[60vh] p-8 text-center animate-in zoom-in-95 duration-300",
+            return n.jsxs("div", {
+              className: "flex flex-col items-center p-6 animate-in zoom-in-95 duration-300 pb-24",
               children: [
                 n.jsx("div", {
-                  className: "w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 mb-6",
+                  className: "w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 mb-4 mt-4",
                   children: n.jsx(S1, { size: 40 }),
                 }),
-                n.jsx("h2", { className: "text-2xl font-bold text-slate-800 mb-2", children: "Refer & Earn" }),
-                n.jsx("p", { className: "text-slate-500 mb-8 max-w-xs", children: "Invite your friends and family to Money Junction and earn rewards for every successful signup." }),
-                n.jsx("button", { className: "bg-indigo-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all active:scale-95", children: "Share invite link" }),
+                n.jsx("h2", { className: "text-2xl font-bold text-slate-800 mb-2 text-center", children: "Refer & Earn" }),
+                n.jsx("p", { className: "text-slate-500 mb-8 max-w-xs text-center", children: "Invite your friends and family to Money Junction and earn rewards for every successful signup." }),
+                n.jsxs("div", {
+                  className: "w-full max-w-md mb-8 space-y-4",
+                  children: [
+                    n.jsx("h3", { className: "text-base font-bold text-slate-700 text-center mb-3", children: "🎁 Referral Rewards" }),
+                    n.jsxs("div", {
+                      className: "rounded-2xl p-4 flex items-center gap-4 shadow-md",
+                      style: { background: "linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)", border: "1.5px solid #f59e0b" },
+                      children: [
+                        n.jsx("div", {
+                          className: "w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0",
+                          style: { background: "linear-gradient(135deg, #f59e0b, #d97706)" },
+                          children: "3",
+                        }),
+                        n.jsxs("div", {
+                          className: "flex-1 text-left",
+                          children: [
+                            n.jsx("div", { className: "font-bold text-amber-800 text-sm", children: "3 Referrals" }),
+                            n.jsx("div", { className: "text-amber-700 text-xs mt-0.5", children: "Get 1 Month FREE subscription" }),
+                          ],
+                        }),
+                        n.jsx("div", {
+                          className: "text-xs font-extrabold px-3 py-1 rounded-full text-white",
+                          style: { background: "#f59e0b" },
+                          children: "1 Month",
+                        }),
+                      ],
+                    }),
+                    n.jsxs("div", {
+                      className: "rounded-2xl p-4 flex items-center gap-4 shadow-md",
+                      style: { background: "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)", border: "1.5px solid #10b981" },
+                      children: [
+                        n.jsx("div", {
+                          className: "w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0",
+                          style: { background: "linear-gradient(135deg, #10b981, #059669)" },
+                          children: "5",
+                        }),
+                        n.jsxs("div", {
+                          className: "flex-1 text-left",
+                          children: [
+                            n.jsx("div", { className: "font-bold text-emerald-800 text-sm", children: "5 Referrals" }),
+                            n.jsx("div", { className: "text-emerald-700 text-xs mt-0.5", children: "Get 2 Months FREE subscription" }),
+                          ],
+                        }),
+                        n.jsx("div", {
+                          className: "text-xs font-extrabold px-3 py-1 rounded-full text-white",
+                          style: { background: "#10b981" },
+                          children: "2 Months",
+                        }),
+                      ],
+                    }),
+                    n.jsxs("div", {
+                      className: "rounded-2xl p-4 flex items-center gap-4 shadow-md",
+                      style: { background: "linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)", border: "1.5px solid #7c3aed" },
+                      children: [
+                        n.jsx("div", {
+                          className: "w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0",
+                          style: { background: "linear-gradient(135deg, #7c3aed, #6d28d9)" },
+                          children: "10",
+                        }),
+                        n.jsxs("div", {
+                          className: "flex-1 text-left",
+                          children: [
+                            n.jsx("div", { className: "font-bold text-violet-800 text-sm", children: "10 Referrals" }),
+                            n.jsx("div", { className: "text-violet-700 text-xs mt-0.5", children: "Get 5 Months FREE subscription" }),
+                          ],
+                        }),
+                        n.jsx("div", {
+                          className: "text-xs font-extrabold px-3 py-1 rounded-full text-white",
+                          style: { background: "#7c3aed" },
+                          children: "5 Months",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                n.jsx("button", { className: "bg-indigo-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all active:scale-95 w-full max-w-md", children: "Share invite link" }),
               ],
             });
           case "Subscription":
@@ -19897,8 +19972,8 @@ const A1 = [
                     ].map((feat, idx) => n.jsxs("div", {
                       className: "flex items-center gap-3",
                       children: [
-                         n.jsx("div", { className: `p-1 rounded-full ${P.bg.includes('slate') ? 'bg-emerald-900/40 text-emerald-400' : 'bg-emerald-100 text-emerald-600'}`, children: n.jsx(f0, { size: 14, strokeWidth: 3 }) }),
-                         n.jsx("span", { className: "text-sm font-medium opacity-90", children: feat })
+                        n.jsx("div", { className: `p-1 rounded-full ${P.bg.includes('slate') ? 'bg-emerald-900/40 text-emerald-400' : 'bg-emerald-100 text-emerald-600'}`, children: n.jsx(f0, { size: 14, strokeWidth: 3 }) }),
+                        n.jsx("span", { className: "text-sm font-medium opacity-90", children: feat })
                       ]
                     }, idx))
                   }),
