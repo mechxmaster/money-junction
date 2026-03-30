@@ -19912,126 +19912,148 @@ const A1 = [
             });
           case "Subscription":
             return n.jsxs("div", {
-              className: "p-5 animate-in fade-in duration-500 pb-24 flex flex-col items-center gap-5",
+              className: "p-4 animate-in fade-in duration-500 pb-24",
               children: [
-                n.jsx("h2", { className: "text-xl font-bold text-slate-800 mt-2 text-center", children: "Choose Your Plan" }),
-                n.jsx("p", { className: "text-slate-500 text-sm text-center -mt-2 mb-1", children: "All plans include the same great features" }),
-                ...[
-                  {
-                    id: "monthly",
-                    name: "1 Month",
-                    price: "1,200",
-                    period: "per month",
-                    badge: "BASIC",
-                    popular: false,
-                    accentColor: "#2563eb",
-                    bgStyle: { backgroundColor: "#ffffff" },
-                    dark: false,
-                  },
-                  {
-                    id: "half-yearly",
-                    name: "6 Months",
-                    price: "6,000",
-                    period: "for 6 months",
-                    badge: "POPULAR",
-                    popular: true,
-                    accentColor: "#10b981",
-                    bgStyle: { backgroundColor: "#0f172a" },
-                    dark: true,
-                  },
-                  {
-                    id: "yearly",
-                    name: "12 Months",
-                    price: "10,000",
-                    period: "for 12 months",
-                    badge: "BEST VALUE",
-                    popular: false,
-                    accentColor: "#f59e0b",
-                    bgStyle: { backgroundColor: "#ffffff" },
-                    dark: false,
-                  }
-                ].map((P, i) => n.jsxs("div", {
-                  className: "w-full max-w-md rounded-[28px] p-6 shadow-xl relative overflow-hidden flex flex-col border cursor-pointer transition-all",
-                  style: {
-                    ...P.bgStyle,
-                    borderColor: P.popular ? P.accentColor : (P.dark ? "#1e293b" : "#e2e8f0"),
-                    borderWidth: P.popular ? "2px" : "1px",
-                    transform: P.popular ? "scale(1.02)" : "scale(1)",
-                    boxShadow: P.popular ? `0 12px 40px ${P.accentColor}33` : "0 4px 20px rgba(0,0,0,0.08)",
-                  },
+                n.jsx("h2", { className: "text-xl font-bold text-slate-800 mt-2 text-center mb-1", children: "Choose Your Plan" }),
+                n.jsx("p", { className: "text-slate-500 text-sm text-center mb-5", children: "All plans include the same great features" }),
+                n.jsx("div", {
+                  style: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", alignItems: "stretch" },
                   children: [
-                    P.popular && n.jsx("div", {
-                      className: "absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2",
-                      children: n.jsx("div", {
-                        className: "text-[10px] font-extrabold px-4 py-1 rounded-full text-white shadow-lg",
-                        style: { backgroundColor: P.accentColor },
-                        children: "⭐ MOST POPULAR",
+                    {
+                      id: "monthly",
+                      name: "1 Month",
+                      price: "1,200",
+                      period: "per month",
+                      badge: "BASIC",
+                      popular: false,
+                      gradient: "linear-gradient(160deg, #f97316 0%, #ea580c 100%)",
+                      buttonColor: "#ea580c",
+                    },
+                    {
+                      id: "half-yearly",
+                      name: "6 Months",
+                      price: "6,000",
+                      period: "for 6 months",
+                      badge: "POPULAR",
+                      popular: true,
+                      gradient: "linear-gradient(160deg, #10b981 0%, #059669 100%)",
+                      buttonColor: "#059669",
+                    },
+                    {
+                      id: "yearly",
+                      name: "12 Months",
+                      price: "10,000",
+                      period: "for 12 months",
+                      badge: "BEST VALUE",
+                      popular: false,
+                      gradient: "linear-gradient(160deg, #8b5cf6 0%, #7c3aed 100%)",
+                      buttonColor: "#7c3aed",
+                    },
+                  ].map((P, i) => n.jsxs("div", {
+                    style: {
+                      background: P.gradient,
+                      borderRadius: "20px",
+                      padding: "16px 14px",
+                      display: "flex",
+                      flexDirection: "column",
+                      boxShadow: P.popular ? "0 12px 32px rgba(16,185,129,0.4)" : "0 6px 20px rgba(0,0,0,0.15)",
+                      position: "relative",
+                      transform: P.popular ? "scale(1.03)" : "scale(1)",
+                      transition: "all 0.2s",
+                    },
+                    children: [
+                      n.jsx("div", {
+                        style: {
+                          fontSize: "9px",
+                          fontWeight: 800,
+                          color: "rgba(255,255,255,0.9)",
+                          backgroundColor: "rgba(255,255,255,0.22)",
+                          borderRadius: "20px",
+                          padding: "3px 9px",
+                          display: "inline-block",
+                          marginBottom: "10px",
+                          alignSelf: "flex-start",
+                          letterSpacing: "0.05em",
+                        },
+                        children: P.badge,
                       }),
-                    }),
-                    n.jsx("div", {
-                      className: "absolute top-4 right-4 text-[10px] font-extrabold px-2.5 py-1 rounded-full text-white",
-                      style: { backgroundColor: P.accentColor },
-                      children: P.badge,
-                    }),
-                    n.jsxs("div", {
-                      className: "mb-5 mt-2",
-                      children: [
-                        n.jsx("h3", {
-                          className: "text-sm font-bold uppercase tracking-wider",
-                          style: { color: P.dark ? "rgba(255,255,255,0.5)" : "rgba(15,23,42,0.5)" },
-                          children: P.name,
-                        }),
-                        n.jsxs("div", {
-                          className: "mt-1.5 flex items-baseline gap-1",
-                          children: [
-                            n.jsx("span", {
-                              className: "text-4xl font-black",
-                              style: { color: P.dark ? "#ffffff" : "#0f172a" },
-                              children: "₹ " + P.price,
-                            }),
-                            n.jsx("span", {
-                              className: "text-sm font-semibold ml-1",
-                              style: { color: P.dark ? "rgba(255,255,255,0.45)" : "rgba(15,23,42,0.45)" },
-                              children: P.period,
-                            }),
-                          ],
-                        }),
-                      ],
-                    }),
-                    n.jsx("div", {
-                      className: "border-t mb-5",
-                      style: { borderColor: P.dark ? "#1e293b" : "#f1f5f9" },
-                    }),
-                    n.jsx("div", {
-                      className: "space-y-3 mb-6",
-                      children: [
-                        "Unlimited document storage",
-                        "Priority support within 2 hours",
-                        "Early access to new features",
-                        "Customized financial reports",
-                      ].map((feat, idx) => n.jsxs("div", {
-                        className: "flex items-center gap-3",
+                      n.jsx("div", {
+                        style: {
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          color: "rgba(255,255,255,0.7)",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.06em",
+                          marginBottom: "4px",
+                        },
+                        children: P.name,
+                      }),
+                      n.jsxs("div", {
+                        style: { display: "flex", alignItems: "baseline", gap: "3px", marginBottom: "14px", flexWrap: "wrap" },
                         children: [
-                          n.jsx("div", {
-                            className: "w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0",
-                            style: { backgroundColor: P.dark ? "rgba(16,185,129,0.2)" : "rgba(16,185,129,0.12)" },
-                            children: n.jsx(f0, { size: 12, strokeWidth: 3.5, color: "#10b981" }),
+                          n.jsx("span", {
+                            style: { fontSize: "20px", fontWeight: 900, color: "#ffffff", lineHeight: 1 },
+                            children: "\u20B9" + P.price,
                           }),
                           n.jsx("span", {
-                            className: "text-sm font-medium",
-                            style: { color: P.dark ? "rgba(255,255,255,0.85)" : "rgba(15,23,42,0.8)" },
-                            children: feat,
+                            style: { fontSize: "10px", fontWeight: 600, color: "rgba(255,255,255,0.65)", marginLeft: "3px" },
+                            children: P.period,
                           }),
                         ],
-                      }, idx)),
-                    }),
-                    n.jsx("button", {
-                      className: "w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-lg active:scale-95 transition-all mt-auto",
-                      style: { backgroundColor: P.accentColor, boxShadow: `0 6px 20px ${P.accentColor}44` },
-                      children: P.popular ? "🚀 Get Started" : "Select Plan",
-                    }),
-                  ],
-                }, i)),
+                      }),
+                      n.jsx("div", {
+                        style: { borderTop: "1px solid rgba(255,255,255,0.2)", marginBottom: "12px" },
+                      }),
+                      n.jsx("div", {
+                        style: { display: "flex", flexDirection: "column", gap: "8px", marginBottom: "14px", flex: 1 },
+                        children: [
+                          "Unlimited document storage",
+                          "Priority support within 2 hours",
+                          "Early access to new features",
+                          "Customized financial reports",
+                        ].map((feat, idx) => n.jsxs("div", {
+                          style: { display: "flex", alignItems: "flex-start", gap: "6px" },
+                          children: [
+                            n.jsx("div", {
+                              style: {
+                                width: "14px",
+                                height: "14px",
+                                borderRadius: "50%",
+                                backgroundColor: "rgba(255,255,255,0.25)",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                flexShrink: 0,
+                                marginTop: "1px",
+                              },
+                              children: n.jsx(f0, { size: 9, strokeWidth: 3.5, color: "#ffffff" }),
+                            }),
+                            n.jsx("span", {
+                              style: { fontSize: "10px", fontWeight: 500, color: "rgba(255,255,255,0.9)", lineHeight: "1.35" },
+                              children: feat,
+                            }),
+                          ],
+                        }, idx)),
+                      }),
+                      n.jsx("button", {
+                        style: {
+                          width: "100%",
+                          padding: "10px 0",
+                          borderRadius: "12px",
+                          fontWeight: 800,
+                          fontSize: "12px",
+                          color: P.buttonColor,
+                          backgroundColor: "#ffffff",
+                          border: "none",
+                          cursor: "pointer",
+                          boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
+                          marginTop: "auto",
+                        },
+                        children: P.popular ? "\uD83D\uDE80 Get Started" : "Select Plan",
+                      }),
+                    ],
+                  }, i)),
+                }),
               ],
             });
           case "Profile":
