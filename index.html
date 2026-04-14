@@ -18,15 +18,24 @@
       align-items: center;
       width: 100%;
       margin: 2rem 0;
+      clear: both;
+    }
+    #pwa-install-container.floating {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: auto;
+      margin: 0;
+      z-index: 9999;
     }
     #pwa-install-btn {
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.25rem;
       background-color: var(--color-mj-green, #10b981);
       color: white;
       border: none;
-      border-radius: 0.375rem;
-      font-weight: 500;
-      font-size: 0.875rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -47,7 +56,7 @@
   <div id="root"></div>
   
   <div id="pwa-install-container">
-    <button id="pwa-install-btn">
+    <button id="pwa-install-btn" type="button">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Install App
     </button>
@@ -85,16 +94,34 @@
       }
     });
 
-    // Inject button below "Sign in"
+    // Inject button logic
     const injectButton = () => {
-      if (document.getElementById('pwa-injected')) return;
+      if (!deferredPrompt) return;
       
       const buttons = document.querySelectorAll('button');
+      let signinBtn = null;
       for (const btn of buttons) {
         if (btn.innerText.toLowerCase().includes('sign in')) {
-          btn.after(installContainer);
-          installContainer.id = 'pwa-injected'; // Prevent double injection
+          signinBtn = btn;
           break;
+        }
+      }
+
+      const container = document.getElementById('pwa-install-container');
+      
+      if (signinBtn) {
+        // Show below "Sign in"
+        if (container.parentElement !== signinBtn.parentElement || container.nextSibling !== signinBtn.nextSibling) {
+          signinBtn.after(container);
+          container.classList.remove('floating');
+          container.style.display = 'flex';
+        }
+      } else {
+        // Fallback to floating button if not on login page
+        if (!container.classList.contains('floating')) {
+          document.body.appendChild(container);
+          container.classList.add('floating');
+          container.style.display = 'flex';
         }
       }
     };
@@ -103,7 +130,7 @@
     observer.observe(document.getElementById('root'), { childList: true, subtree: true });
     
     // Fallback check
-    setInterval(injectButton, 2000);
+    setInterval(injectButton, 3000);
   </script>
 </body>
 
