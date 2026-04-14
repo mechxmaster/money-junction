@@ -11,72 +11,13 @@
   <title>Money Junction</title>
   <script type="module" crossorigin src="./assets/index.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index.css">
-  <style>
-    #pwa-install-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin: 2rem 0;
-      clear: both;
-    }
-
-    #pwa-install-container.floating {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: auto;
-      margin: 0;
-      z-index: 9999;
-    }
-
-    #pwa-install-btn {
-      padding: 0.6rem 1.25rem;
-      background-color: var(--color-mj-green, #10b981);
-      color: white;
-      border: none;
-      border-radius: 9999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.375rem;
-      transition: all 0.2s;
-    }
-
-    #pwa-install-btn:hover {
-      filter: brightness(1.1);
-    }
-
-    #pwa-install-btn:active {
-      transform: scale(0.98);
-    }
-  </style>
 </head>
 
 <body>
   <div id="root"></div>
 
-  <div id="pwa-install-container">
-    <button id="pwa-install-btn" type="button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="7 10 12 15 17 10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
-      </svg>
-      Install App
-    </button>
-  </div>
-
   <script>
-    let deferredPrompt;
-    const installContainer = document.getElementById('pwa-install-container');
-    const installBtn = document.getElementById('pwa-install-btn');
-
-    // Register Service Worker
+    // Register Service Worker for PWA functionality
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js').then(reg => {
@@ -84,63 +25,6 @@
         }).catch(err => console.log('SW failed', err));
       });
     }
-
-    // Capture Install Prompt
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      // Already visible, but we ensure it's flex just in case
-      installContainer.style.display = 'flex';
-    });
-
-    installBtn.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-          installContainer.style.display = 'none';
-        }
-        deferredPrompt = null;
-      } else {
-        alert("To install this app:\n\n1. Open your browser menu (⋮ or ⋯)\n2. Select 'Install App' or 'Add to Home Screen'\n\nOn iPhone/iPad: Tap the Share button and select 'Add to Home Screen'.");
-      }
-    });
-
-    // Inject button logic
-    const injectButton = () => {
-      const buttons = document.querySelectorAll('button');
-      let signinBtn = null;
-      for (const btn of buttons) {
-        if (btn.innerText.toLowerCase().includes('sign in')) {
-          signinBtn = btn;
-          break;
-        }
-      }
-
-      const container = document.getElementById('pwa-install-container');
-
-      if (signinBtn) {
-        // Show below "Sign in"
-        if (container.parentElement !== signinBtn.parentElement || container.nextSibling !== signinBtn.nextSibling) {
-          signinBtn.after(container);
-          container.classList.remove('floating');
-          container.style.display = 'flex';
-        }
-      } else {
-        // Fallback to floating button if not on login page
-        if (!container.classList.contains('floating')) {
-          document.body.appendChild(container);
-          container.classList.add('floating');
-          container.style.display = 'flex';
-        }
-      }
-    };
-
-    const observer = new MutationObserver(injectButton);
-    observer.observe(document.getElementById('root'), { childList: true, subtree: true });
-
-    // Fallback check
-    setInterval(injectButton, 3000);
   </script>
 </body>
 
