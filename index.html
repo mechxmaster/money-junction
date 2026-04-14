@@ -99,8 +99,6 @@
 
     // Inject button logic
     const injectButton = () => {
-      if (!deferredPrompt) return;
-      
       const buttons = document.querySelectorAll('button');
       let signinBtn = null;
       for (const btn of buttons) {
